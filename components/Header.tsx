@@ -14,9 +14,15 @@ export const Header: React.FC = () => {
     }, []);
 
     const navLinks = [
+<<<<<<< HEAD
         { name: "Nossa História", href: "#history" },
         { name: "Espiritualidade", href: "#five-stones" },
         { name: "Eventos", href: "#events" },
+=======
+        { name: "Quem somos", href: "#manifesto" },
+        { name: "Eventos", href: "#events" },
+        { name: "Depoimentos", href: "#testimonials" },
+>>>>>>> 7163cf72f318ebd01ddeaeebe2e80ae706a83cbb
     ];
 
     return (

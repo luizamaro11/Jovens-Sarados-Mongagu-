@@ -1,5 +1,6 @@
 import { EventData, TestimonialData } from './types';
 
+<<<<<<< HEAD
 // NOTA: Substitua estas URLs pelas fotos reais que você enviou
 export const HERO_IMAGES = [
     "/images/slider1.jpg",
@@ -17,6 +18,35 @@ export const EVENTS: EventData[] = [
         image: "https://picsum.photos/seed/worship/600/400",
         description: "Um carnaval diferente. Uma experiência profunda de oração, alegria e encontro com Deus.",
         price: "R$ 280,00"
+=======
+export const EVENTS: EventData[] = [
+    {
+        id: 1,
+        title: "Maranathá 2024",
+        date: "15 e 16 de Junho",
+        location: "Ginásio Poliesportivo - Centro",
+        image: "https://picsum.photos/seed/worship/600/400",
+        description: "Um fim de semana para renovar suas forças e reencontrar o sentido. Música, oração e uma galera que te entende.",
+        price: "R$ 30,00"
+    },
+    {
+        id: 2,
+        title: "Luau da Juventude",
+        date: "05 de Julho - 20h",
+        location: "Praça da Matriz",
+        image: "https://picsum.photos/seed/campfire/600/400",
+        description: "Vem curtir um som acústico, conversar e viver uma noite diferente sob as estrelas. Traga seus amigos!",
+        price: "Gratuito"
+    },
+    {
+        id: 3,
+        title: "Retiro Metanoia",
+        date: "2 a 4 de Agosto",
+        location: "Sítio Monte Horebe",
+        image: "https://picsum.photos/seed/friends/600/400",
+        description: "Desconecte-se do barulho e conecte-se com o que realmente importa. Uma virada de chave na sua vida.",
+        price: "R$ 150,00"
+>>>>>>> 7163cf72f318ebd01ddeaeebe2e80ae706a83cbb
     }
 ];
 
@@ -42,6 +72,7 @@ export const TESTIMONIALS: TestimonialData[] = [
         quote: "O JS me ensinou que minha arte pode curar. Tocar aqui não é show, é missão. A alegria dessa galera contagia!",
         avatar: "https://picsum.photos/seed/lucas/100/100"
     }
+<<<<<<< HEAD
 ];
 
 export const PEDRINHAS = [
@@ -88,4 +119,6 @@ export const TESOUROS = [
         icon: "tau",
         desc: "O tau é um sinal externo do nosso compromisso com Deus, que nos propõe a viver como Jesus: castos, pobres e obedientes."
     }
+=======
+>>>>>>> 7163cf72f318ebd01ddeaeebe2e80ae706a83cbb
 ];
