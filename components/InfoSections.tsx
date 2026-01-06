@@ -126,6 +126,9 @@ export const HistorySection: React.FC = () => {
                                 alt="Grupo reunido no início"
                                 className="rounded-tl-[4rem] rounded-br-[4rem] rounded-tr-xl rounded-bl-xl shadow-2xl relative z-10 w-full object-cover h-[500px]"
                             />
+                            <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md px-5 py-2 rounded-lg shadow-lg z-20 border border-white/50">
+                                <span className="text-js-mystery font-display font-bold text-sm tracking-wide">Missão de Inauguração 2015</span>
+                            </div>
                             <div className="absolute -top-6 -right-6 w-32 h-32 bg-js-sky rounded-full mix-blend-multiply opacity-20 z-0"></div>
                         </div>
                     </div>
