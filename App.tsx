@@ -1,76 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Button } from './components/Button';
 import { EventCard } from './components/EventCard';
 import { LeadForm } from './components/LeadForm';
-<<<<<<< HEAD
 import { FiveStonesSection, SevenTreasuresSection, HistorySection } from './components/InfoSections';
 import { HeroCarousel } from './components/HeroCarousel';
+import { EventPage } from './components/EventPage';
 import { EVENTS, TESTIMONIALS, HERO_IMAGES } from './constants';
-=======
-import { EVENTS, TESTIMONIALS } from './constants';
->>>>>>> 7163cf72f318ebd01ddeaeebe2e80ae706a83cbb
 import { Flame, Quote, ChevronDown } from 'lucide-react';
 
 function App() {
+  const [viewEventId, setViewEventId] = useState<number | null>(null);
+
+  const selectedEvent = EVENTS.find(e => e.id === viewEventId);
+
+  if (selectedEvent) {
+    return (
+      <div className="min-h-screen flex flex-col font-body bg-js-light">
+        <Header />
+        <EventPage event={selectedEvent} onBack={() => setViewEventId(null)} />
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col font-body bg-js-light">
       <Header />
 
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-<<<<<<< HEAD
         {/* Background Image Slider */}
         <HeroCarousel images={HERO_IMAGES} />
 
         {/* Gradient Overlay based on official palette */}
         <div className="absolute inset-0 bg-gradient-to-b from-js-sky/90 via-js-sky/70 to-js-mystery/90 mix-blend-multiply pointer-events-none" />
-=======
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://picsum.photos/seed/youthgroup/1920/1080" 
-            alt="Jovens em missão" 
-            className="w-full h-full object-cover"
-          />
-          {/* Gradient Overlay based on official palette */}
-          <div className="absolute inset-0 bg-gradient-to-b from-js-sky/90 via-js-sky/70 to-js-mystery/90 mix-blend-multiply" />
-        </div>
->>>>>>> 7163cf72f318ebd01ddeaeebe2e80ae706a83cbb
 
         {/* Content */}
         <div className="container mx-auto px-6 relative z-10 text-center pt-20">
           <div className="inline-block mb-6 px-4 py-1 border border-js-joy/50 rounded-full bg-js-sky/30 backdrop-blur-sm">
             <span className="text-js-joy font-bold uppercase tracking-widest text-xs">O Movimento que transforma vidas</span>
           </div>
-<<<<<<< HEAD
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-xl">
             Jovem, eu te digo:<br />
-=======
-          
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-xl">
-            Jovem, eu te digo:<br/>
->>>>>>> 7163cf72f318ebd01ddeaeebe2e80ae706a83cbb
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-js-joy to-js-youth">
               LEVANTA-TE!
             </span>
           </h1>
-<<<<<<< HEAD
 
           <p className="text-lg md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
             Não fomos feitos para o chão. Existe um céu esperando por você.
-=======
-          
-          <p className="text-lg md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-            Não fomos feitos para o chão. Existe um céu esperando por você. 
->>>>>>> 7163cf72f318ebd01ddeaeebe2e80ae706a83cbb
             Vem viver uma alegria que não passa.
           </p>
 
           <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-<<<<<<< HEAD
             <Button variant="primary" icon onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}>
               Ver Próximos Eventos
             </Button>
@@ -79,16 +64,10 @@ function App() {
               className="!text-white !border-white hover:!bg-white hover:!text-js-sky"
               onClick={() => document.getElementById('history')?.scrollIntoView({ behavior: 'smooth' })}
             >
-=======
-            <Button variant="primary" icon onClick={() => document.getElementById('events')?.scrollIntoView({behavior: 'smooth'})}>
-              Ver Próximos Eventos
-            </Button>
-            <Button variant="outline">
->>>>>>> 7163cf72f318ebd01ddeaeebe2e80ae706a83cbb
               Conheça nossa missão
             </Button>
           </div>
-        </div>
+        </div >
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
@@ -102,35 +81,20 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-js-joy/20 rounded-full z-0" />
-<<<<<<< HEAD
               <img
                 src="/images/manifesto.jpg"
                 alt="Jovem rezando"
-=======
-              <img 
-                src="https://picsum.photos/seed/prayer/800/800" 
-                alt="Jovem rezando" 
->>>>>>> 7163cf72f318ebd01ddeaeebe2e80ae706a83cbb
                 className="rounded-3xl shadow-2xl relative z-10 w-full object-cover aspect-square grayscale hover:grayscale-0 transition-all duration-700"
               />
               <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-js-sky rounded-full z-0 opacity-10" />
             </div>
-<<<<<<< HEAD
-
-=======
-            
->>>>>>> 7163cf72f318ebd01ddeaeebe2e80ae706a83cbb
             <div>
               <div className="flex items-center mb-4 text-js-youth font-bold">
                 <Flame className="w-5 h-5 mr-2" />
                 <span>Nossa Identidade</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-js-sky mb-6">
-<<<<<<< HEAD
-                Mais que um grupo.<br />Um estilo de vida.
-=======
-                Mais que um grupo.<br/>Um estilo de vida.
->>>>>>> 7163cf72f318ebd01ddeaeebe2e80ae706a83cbb
+                Mais que um grupo.<br /> Um estilo de vida.
               </h2>
               <p className="text-gray-600 text-lg mb-6 leading-relaxed">
                 A gente sabe que ser jovem hoje é um desafio. Muita pressão, muita dúvida, muita barulho. O Jovens Sarados nasceu pra ser o seu refúgio e sua rampa de lançamento.
@@ -138,11 +102,6 @@ function App() {
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                 Nossa missão é simples: levar a força do Evangelho com a cara da juventude. Sem fingimento, sem máscaras. Apenas a verdade de quem encontrou um Amor maior.
               </p>
-<<<<<<< HEAD
-
-=======
-              
->>>>>>> 7163cf72f318ebd01ddeaeebe2e80ae706a83cbb
               <div className="grid grid-cols-2 gap-6">
                 <div className="border-l-4 border-js-joy pl-4">
                   <h4 className="font-display font-bold text-xl text-js-mystery">Oração</h4>
@@ -158,7 +117,6 @@ function App() {
         </div>
       </section>
 
-<<<<<<< HEAD
       {/* NEW SECTIONS: HISTORY, PEDRINHAS, TESOUROS */}
       <HistorySection />
       <FiveStonesSection />
@@ -166,10 +124,6 @@ function App() {
 
       {/* EVENTS GRID */}
       <section id="events" className="py-24 bg-white">
-=======
-      {/* EVENTS GRID */}
-      <section id="events" className="py-24 bg-js-light">
->>>>>>> 7163cf72f318ebd01ddeaeebe2e80ae706a83cbb
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl font-display font-bold text-js-sky mb-4">
@@ -182,7 +136,11 @@ function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {EVENTS.map(event => (
-              <EventCard key={event.id} event={event} />
+              <EventCard
+                key={event.id}
+                event={event}
+                onClick={() => setViewEventId(event.id)}
+              />
             ))}
           </div>
 
@@ -213,15 +171,9 @@ function App() {
                   "{testimonial.quote}"
                 </p>
                 <div className="flex items-center">
-<<<<<<< HEAD
                   <img
                     src={testimonial.avatar}
                     alt={testimonial.name}
-=======
-                  <img 
-                    src={testimonial.avatar} 
-                    alt={testimonial.name} 
->>>>>>> 7163cf72f318ebd01ddeaeebe2e80ae706a83cbb
                     className="w-12 h-12 rounded-full border-2 border-js-joy mr-4"
                   />
                   <div>
@@ -236,22 +188,13 @@ function App() {
       </section>
 
       {/* LEAD CONVERSION SECTION */}
-<<<<<<< HEAD
       <section id="join" className="py-24 bg-js-light">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             <LeadForm />
           </div>
-=======
-      <section id="join" className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-            <div className="max-w-5xl mx-auto">
-                <LeadForm />
-            </div>
->>>>>>> 7163cf72f318ebd01ddeaeebe2e80ae706a83cbb
         </div>
       </section>
-
       <Footer />
     </div>
   );

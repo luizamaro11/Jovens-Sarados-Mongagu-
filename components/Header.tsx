@@ -14,38 +14,26 @@ export const Header: React.FC = () => {
     }, []);
 
     const navLinks = [
-<<<<<<< HEAD
         { name: "Nossa História", href: "#history" },
         { name: "Espiritualidade", href: "#five-stones" },
         { name: "Eventos", href: "#events" },
-=======
-        { name: "Quem somos", href: "#manifesto" },
-        { name: "Eventos", href: "#events" },
-        { name: "Depoimentos", href: "#testimonials" },
->>>>>>> 7163cf72f318ebd01ddeaeebe2e80ae706a83cbb
     ];
 
     return (
-        <header 
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-                scrolled ? 'bg-js-sky/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-6'
-            }`}
+        <header
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-js-sky/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-6'
+                }`}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
                 {/* Logo Area */}
-                <div className="flex items-center space-x-2 z-50">
-                    <div className="w-10 h-10 bg-js-youth rounded-full flex items-center justify-center text-white font-display font-bold text-xl">
-                        JS
-                    </div>
-                    <span className={`font-display font-bold text-xl tracking-tight ${scrolled ? 'text-white' : 'text-white'}`}>
-                        JOVENS SARADOS
-                    </span>
+                <div className="flex items-center z-50">
+                    <img src="/images/logo-oficial-mongaguá.png" alt="Jovens Sarados Logo" className="h-8 w-auto object-contain" />
                 </div>
 
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center space-x-8">
                     {navLinks.map((link) => (
-                        <a 
+                        <a
                             key={link.name}
                             href={link.href}
                             className="text-white/90 hover:text-js-joy font-medium transition-colors text-sm uppercase tracking-wide"
@@ -53,7 +41,7 @@ export const Header: React.FC = () => {
                             {link.name}
                         </a>
                     ))}
-                    <a 
+                    <a
                         href="#join"
                         className="px-5 py-2 bg-white text-js-sky rounded-full font-display font-bold hover:bg-js-joy hover:text-js-mystery transition-all shadow-md transform hover:scale-105"
                     >
@@ -62,7 +50,7 @@ export const Header: React.FC = () => {
                 </nav>
 
                 {/* Mobile Toggle */}
-                <button 
+                <button
                     className="md:hidden text-white z-50"
                     onClick={() => setMobileOpen(!mobileOpen)}
                 >
@@ -70,11 +58,10 @@ export const Header: React.FC = () => {
                 </button>
 
                 {/* Mobile Nav Overlay */}
-                <div className={`fixed inset-0 bg-js-sky z-40 flex flex-col items-center justify-center space-y-8 transition-transform duration-300 ${
-                    mobileOpen ? 'translate-x-0' : 'translate-x-full'
-                }`}>
+                <div className={`fixed inset-0 bg-js-sky z-40 flex flex-col items-center justify-center space-y-8 transition-transform duration-300 ${mobileOpen ? 'translate-x-0' : 'translate-x-full'
+                    }`}>
                     {navLinks.map((link) => (
-                        <a 
+                        <a
                             key={link.name}
                             href={link.href}
                             onClick={() => setMobileOpen(false)}
@@ -83,7 +70,7 @@ export const Header: React.FC = () => {
                             {link.name}
                         </a>
                     ))}
-                     <a 
+                    <a
                         href="#join"
                         onClick={() => setMobileOpen(false)}
                         className="px-8 py-3 bg-js-youth text-white rounded-full font-display font-bold text-xl"

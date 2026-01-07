@@ -7,25 +7,20 @@ export const Footer: React.FC = () => {
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                     <div className="col-span-1 md:col-span-2">
-                        <div className="flex items-center space-x-2 mb-6">
-                            <div className="w-10 h-10 bg-js-youth rounded-full flex items-center justify-center text-white font-display font-bold text-xl">
-                                JS
-                            </div>
-                            <span className="font-display font-bold text-2xl tracking-tight">
-                                JOVENS SARADOS
-                            </span>
+                        <div className="mb-6">
+                            <img src="/images/logo-oficial-mongaguá.png" alt="Jovens Sarados Logo" className="h-8 w-auto object-contain" />
                         </div>
                         <p className="text-gray-400 max-w-sm text-lg leading-relaxed mb-6">
                             Um movimento de jovens para jovens. Acreditamos que é possível ser de Deus sem deixar de ser jovem. Vem com a gente nessa missão!
                         </p>
                         <div className="flex space-x-4">
-                            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-js-youth transition-colors">
+                            <a href="https://www.instagram.com/js.mongagua/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-js-youth transition-colors">
                                 <Instagram className="w-5 h-5" />
                             </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-js-sky transition-colors">
+                            <a href="https://www.facebook.com/JovensSaradosMissaoMongagua" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-js-sky transition-colors">
                                 <Facebook className="w-5 h-5" />
                             </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 transition-colors">
+                            <a href="https://www.youtube.com/@jsmissaomongagua3005" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 transition-colors">
                                 <Youtube className="w-5 h-5" />
                             </a>
                         </div>
@@ -57,6 +52,6 @@ export const Footer: React.FC = () => {
                     </p>
                 </div>
             </div>
-        </footer>
+        </footer >
     );
 };

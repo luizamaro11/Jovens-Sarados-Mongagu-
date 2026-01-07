@@ -6,20 +6,25 @@ import { CheckCircle2, Send } from 'lucide-react';
 export const LeadForm: React.FC = () => {
     const [formData, setFormData] = useState<LeadFormData>({
         name: '',
-        email: '',
-        whatsapp: '',
-        city: ''
+        city: '',
+        age: ''
     });
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setStatus('submitting');
-        
-        // Simulate API call
+
+        // WhatsApp redirection logic
+        const message = `Olá! Me chamo ${formData.name}, tenho ${formData.age} anos, sou de ${formData.city}. Gostaria de participar do Jovens Sarados!`;
+        const whatsappUrl = `https://wa.me/5513991570440?text=${encodeURIComponent(message)}`;
+
+        window.open(whatsappUrl, '_blank');
+
+        // Simulate API call for UI feedback
         setTimeout(() => {
             setStatus('success');
-            console.log("Lead Capturado:", formData);
+            console.log("Lead Capturado e redirecionado:", formData);
         }, 1500);
     };
 
@@ -55,15 +60,15 @@ export const LeadForm: React.FC = () => {
                     Não perca nenhum evento. Entre para nossa lista VIP e receba convites, reflexões e novidades direto no seu celular.
                 </p>
                 <div className="relative z-10 hidden md:block">
-                     <div className="flex items-center text-white/80 text-sm mb-2">
+                    <div className="flex items-center text-white/80 text-sm mb-2">
                         <CheckCircle2 className="w-4 h-4 mr-2" /> Conteúdo exclusivo
-                     </div>
-                     <div className="flex items-center text-white/80 text-sm mb-2">
+                    </div>
+                    <div className="flex items-center text-white/80 text-sm mb-2">
                         <CheckCircle2 className="w-4 h-4 mr-2" /> Prioridade na inscrição
-                     </div>
-                     <div className="flex items-center text-white/80 text-sm">
+                    </div>
+                    <div className="flex items-center text-white/80 text-sm">
                         <CheckCircle2 className="w-4 h-4 mr-2" /> Comunidade ativa
-                     </div>
+                    </div>
                 </div>
             </div>
 
@@ -82,22 +87,22 @@ export const LeadForm: React.FC = () => {
                             onChange={handleChange}
                         />
                     </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                         <div>
-                            <label htmlFor="whatsapp" className="block text-sm font-bold text-js-mystery mb-2">WhatsApp</label>
+                            <label htmlFor="age" className="block text-sm font-bold text-js-mystery mb-2">Idade</label>
                             <input
-                                type="tel"
-                                id="whatsapp"
-                                name="whatsapp"
+                                type="number"
+                                id="age"
+                                name="age"
                                 required
-                                placeholder="(00) 00000-0000"
+                                placeholder="Sua idade"
                                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-js-sky focus:ring-2 focus:ring-js-sky/20 transition-all outline-none"
-                                value={formData.whatsapp}
+                                value={formData.age}
                                 onChange={handleChange}
                             />
                         </div>
-                        <div>
+                        <div className="md:col-span-2">
                             <label htmlFor="city" className="block text-sm font-bold text-js-mystery mb-2">Cidade</label>
                             <input
                                 type="text"
@@ -112,25 +117,11 @@ export const LeadForm: React.FC = () => {
                         </div>
                     </div>
 
-                    <div>
-                        <label htmlFor="email" className="block text-sm font-bold text-js-mystery mb-2">E-mail</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            required
-                            placeholder="seu@email.com"
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-js-sky focus:ring-2 focus:ring-js-sky/20 transition-all outline-none"
-                            value={formData.email}
-                            onChange={handleChange}
-                        />
-                    </div>
-
                     <div className="pt-2">
-                        <Button 
-                            type="submit" 
-                            fullWidth 
-                            variant="primary" 
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="primary"
                             disabled={status === 'submitting'}
                             className="disabled:opacity-70 disabled:cursor-not-allowed"
                         >

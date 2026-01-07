@@ -6,6 +6,7 @@ export interface EventData {
     image: string;
     description: string;
     price: string;
+    time: string;
 }
 
 export interface TestimonialData {
@@ -18,7 +19,6 @@ export interface TestimonialData {
 
 export interface LeadFormData {
     name: string;
-    email: string;
-    whatsapp: string;
     city: string;
+    age: string;
 }
